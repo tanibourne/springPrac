@@ -1,5 +1,6 @@
 package com.example.week02_hw_2t.domain;
 
+import com.example.week02_hw_2t.dto.PersonRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -32,4 +33,18 @@ public class Person {
         this.job = job;
         this.age = age;
     }// @Bean 전용
+
+    public Person(PersonRequestDto requestDto) {
+        this.name = requestDto.getName();
+        this.address = requestDto.getAddress();
+        this.job = requestDto.getJob();
+        this.age = requestDto.getAge();
+    }
+
+    public void update(PersonRequestDto requestDto){
+        this.name = requestDto.getName();
+        this.address = requestDto.getAddress();
+        this.job = requestDto.getJob();
+        this.age = requestDto.getAge();
+    }
 }
