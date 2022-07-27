@@ -24,6 +24,7 @@ public class BlogServerHwApplication {
             //저장할때 쓰는거 CREATE
 //            String name, String address, String job, int age
             feedRepository.save(new Feed("titleTest", "author", "password", "commentTEST"));
+            //bean
 
             // 조회할때 쓰는거 READ 전부 READ
         };
