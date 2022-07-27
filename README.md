@@ -29,4 +29,18 @@
 비밀번호를 확인하는 요청에대해서 어떤 방식을 채택하는 것이 더 올바른 것인가는 좀 더 고민이 필요하다.
 
 > 적절한 관심사 분리를 적용하였나요? (Controller, Repository, Service)
-> 작성한 코드에서 빈(Bean)을 모두 찾아보세요!
+* 
+> 빈(Bean)
+* bean에 대해서는 아직 정확하게 알지는 못하지만, 일단 나의 api를 명세서대로 잘 나왔는지 테스트하기 미리 심어놓는 코드정도로 이해하고 있고 내가 실제로 쓴 Bean은 아래와 같다.
+```java
+public CommandLineRunner demo(FeedRepository feedRepository) {
+        return (args) -> {
+    
+            feedRepository.save(new Feed("titleTest", "author", "password", "commentTEST"));
+            //bean
+
+            
+        };
+
+}
+```
