@@ -25,7 +25,7 @@
 * 게시글의 비밀번호를 확인할때는 POST방식으로 FeedRequestDto에 먼저 check할 password를 넣어넣고 이것을 body로 받아 feedRepository를 거쳐 받아온 password를 service클래스에서 비교를 한뒤 True/False를 리턴해주늗 형식
 * Response를 보여줄때는 ResponseDto <T>으로 만들어서 success와 error 사이에 오는 data 값의 자료형의 자유도를 높여 처리 
 > RESTful한 API를 설계했나요? 어떤 부분이 그런가요? 어떤 부분이 그렇지 않나요?
-*HTTP의 요청에 대응해서 이 요청방식을 정확하게 채택했는지가 관건인데 일단 수정,삭제,확인하는 상황에대해서는 RESTful한 API를 작성했다 그래서 RESTful하다라고 말할수 있을거 같지만,
+* HTTP의 요청에 대응해서 이 요청방식을 정확하게 채택했는지가 관건인데 일단 수정,삭제,확인하는 상황에대해서는 RESTful한 API를 작성했다 그래서 RESTful하다라고 말할수 있을거 같지만,
 비밀번호를 확인하는 요청에대해서 어떤 방식을 채택하는 것이 더 올바른 것인가는 좀 더 고민이 필요하다.
 
 > 적절한 관심사 분리를 적용하였나요? (Controller, Repository, Service)
