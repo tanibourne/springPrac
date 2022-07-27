@@ -48,7 +48,7 @@ public class FeedController {
 
     }
 
-    @PutMapping("/api/feeds/{id}")
+    @PutMapping("/api/feeds/{id}") //게시글 수정
     public ResponseDto<Feed> updateFeed(@PathVariable Long id, @RequestBody FeedRequestDto requestDto) {
         return new ResponseDto<>(true,feedService.updateFeed(id, requestDto),null);
     }
