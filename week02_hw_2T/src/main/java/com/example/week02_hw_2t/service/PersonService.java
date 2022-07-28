@@ -5,7 +5,6 @@ import com.example.week02_hw_2t.domain.PersonRepository;
 import com.example.week02_hw_2t.dto.PersonRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.transaction.Transactional;
 
@@ -13,20 +12,19 @@ import javax.transaction.Transactional;
 @Service
 public class PersonService {
 
-    private final PersonRepository personRepository;
+    private  final PersonRepository personRepository;
 
     @Transactional
-    public Long updatePerson(Long id, PersonRequestDto requestDto){
-        Person personOld = personRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당아이디가 없습니다.")
+    public Long updatePersonService(Long id, PersonRequestDto personRequestDto){
+
+        Person person = personRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("해당 아이디가 존재하지 않다.")
         );
 
-        personOld.update(requestDto);
+        person.update(personRequestDto);
 
-        return personOld.getId();
+
+        return id;
     }
-
-
-
 
 }

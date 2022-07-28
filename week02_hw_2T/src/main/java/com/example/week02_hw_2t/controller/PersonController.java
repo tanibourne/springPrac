@@ -9,35 +9,39 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+
 @RequiredArgsConstructor
-public class Personcontroller {
+@RestController
+public class PersonController {
     private final PersonRepository personRepository;
     private final PersonService personService;
+
     @GetMapping("/api/persons")
     public List<Person> getPerson(){
-
         return personRepository.findAll();
 
     }
+
+    @DeleteMapping("/api/persons/{id}")
+    public Long deletePerson(@PathVariable Long id){
+
+        personRepository.deleteById(id);
+
+        return id;
+    }
+
     @PostMapping("/api/persons")
     public Person createPerson(@RequestBody PersonRequestDto requestDto){
         Person person = new Person(requestDto);
+
         return personRepository.save(person);
 
     }
     @PutMapping("/api/persons/{id}")
     public Long updatePerson(@PathVariable Long id, @RequestBody PersonRequestDto requestDto){
-        return personService.updatePerson(id, requestDto);
+        return personService.updatePersonService(id, requestDto);
 
     }
 
-
-
-    @DeleteMapping("/api/persons/{id}")
-    public Long deletePerson(@PathVariable Long id){
-        personRepository.deleteById(id);
-        return id;
-    }
 
 }
