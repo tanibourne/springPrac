@@ -15,8 +15,8 @@ import javax.persistence.*; // SQL
 @NoArgsConstructor // 기본생성자를 대신 생성해줍니다.
 @Entity // 테이블임을 나타냅니다.
 public class Course extends Timestamped {
-
-    //    @javax.persistence.Id
+//setter는 Repository에서 자동으로 해주기 때문에 필요없다.
+//    @javax.persistence.Id
     @Id// ID 값, Primary Key로 사용하겠다는 뜻입니다.
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 증가 명령입니다.
     private Long id;
