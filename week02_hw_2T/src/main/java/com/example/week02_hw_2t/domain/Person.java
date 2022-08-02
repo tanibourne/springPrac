@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -33,7 +34,7 @@ public class Person {
         this.age = requestDto.getAge();
     }
 
-    public void  update(PersonRequestDto requestDto){
+    public void  update(Optional<T> requestDto){
         this.name = requestDto.getName();
         this.job = requestDto.getJob();
         this.age = requestDto.getAge();

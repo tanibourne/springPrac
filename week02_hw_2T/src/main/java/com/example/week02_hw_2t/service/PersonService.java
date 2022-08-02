@@ -6,7 +6,9 @@ import com.example.week02_hw_2t.dto.PersonRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -16,15 +18,26 @@ public class PersonService {
 
     @Transactional
     public Long updatePersonService(Long id, PersonRequestDto personRequestDto){
+        long start = System.currentTimeMillis();
+try {
+    Optional<Person> person = personRepository.findById(id);
+    person.update(personRequestDto);
+    return id;
+}
+finally {
 
-        Person person = personRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("해당 아이디가 존재하지 않다.")
-        );
 
-        person.update(personRequestDto);
+    long finish = System.currentTimeMillis();
+    long timeMs = finish - start;
+
+    System.out.println("updateperson" + timeMs + "ms");
 
 
-        return id;
+}
+
+
+
+
     }
 
 }
