@@ -21,9 +21,7 @@ public class Feed extends Timestamped {
     @Column(nullable = false)
     private String author;
 
-    @JsonIgnore
-    @Column(nullable = false)
-    private String password;
+
 
     @Column(nullable = false)
     private String comment;
@@ -31,7 +29,7 @@ public class Feed extends Timestamped {
     public Feed(FeedRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.author = requestDto.getAuthor();
-        this.password = requestDto.getPassword();
+
         this.comment = requestDto.getComment();
     }
 
@@ -39,7 +37,7 @@ public class Feed extends Timestamped {
     public void update(FeedRequestDto requestDto){
         this.title = requestDto.getTitle();
         this.author = requestDto.getAuthor();
-        this.password = requestDto.getPassword();
+
         this.comment = requestDto.getComment();
 
     }
@@ -51,7 +49,6 @@ public class Feed extends Timestamped {
     public Feed(String title, String author, String password, String comment) {
         this.title = title;
         this.author = author;
-        this.password = password;
         this.comment = comment;
     }//@BEAN
 }

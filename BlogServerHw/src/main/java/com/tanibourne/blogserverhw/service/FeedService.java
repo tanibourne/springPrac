@@ -23,19 +23,6 @@ public class FeedService {
         feed.update(requestDto);
         return feed;
     }
-    @Transactional
-    public  boolean checkPassword(Long id, FeedRequestDto requestDto){
-        Feed feed = feedRepository.findById(id).orElseThrow(
-                () -> new NullPointerException("해당 아이디가 없습니다.")
-        );
-
-        String feedPassword = feed.getPassword();
-
-        return feedPassword.equals(requestDto.getPassword());
-
-
-
-    }
 
 
 }

@@ -41,19 +41,13 @@ public class FeedController {
         return new ResponseDto<>(true, feedRepository.save(new Feed(requestDto)),null);
     }
 
-    @PostMapping("/api/feeds/{id}") //비밀번호 확인
-    public  ResponseDto<Boolean> checkPassword(@PathVariable Long id, @RequestBody FeedRequestDto requestDto) {
-        boolean check = feedService.checkPassword(id,requestDto);
-        return new ResponseDto<>(true,check,null);
-
-    }
 
     @PutMapping("/api/feeds/{id}") //게시글 수정
     public ResponseDto<Feed> updateFeed(@PathVariable Long id, @RequestBody FeedRequestDto requestDto) {
         return new ResponseDto<>(true,feedService.updateFeed(id, requestDto),null);
     }
 
-    @DeleteMapping("/api/feeds/{id}")
+    @DeleteMapping("/api/feeds/{id}")// 게시글 삭제
     public ResponseDto<Boolean> deleteFeed(@PathVariable Long id) {
 
         feedRepository.deleteById(id);

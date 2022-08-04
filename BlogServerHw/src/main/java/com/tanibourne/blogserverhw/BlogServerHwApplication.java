@@ -15,5 +15,7 @@ public class BlogServerHwApplication {
     public static void main(String[] args) {
         SpringApplication.run(BlogServerHwApplication.class, args);
     }
+
+
 }
 

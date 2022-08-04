@@ -18,7 +18,6 @@ public class FeedRequestDto{
 
     private String author;
 
-    private String password;
 
     private String comment;
 
